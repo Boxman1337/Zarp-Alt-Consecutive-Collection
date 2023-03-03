@@ -106,7 +106,7 @@ InstanceOne() {
     SwapToWindow(1)
 
     ; Collects the Uranium
-    ClickCollector()
+    ClickCollect()
 
     ; Closes the collector interface
     ExitCollector()
