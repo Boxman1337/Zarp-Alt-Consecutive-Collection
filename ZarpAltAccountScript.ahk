@@ -1,4 +1,4 @@
-﻿; Zarp Alt Account Collecting Script ;
+; Zarp Alt Account Collecting Script ;
 
 ; ---------------------------------- ;
 
@@ -22,8 +22,10 @@
 
 SwapToWindow(x) {
 	
+	SetKeyDelay 30, 50
+
 	; Uses the WindowsKey + Num shortcut to swap windows without having to Alt + Tab
-	Send {LWin down} %x% {LWin up}
+	Send, #%x%
 
 	; Wait for a moment for window to load in
 	Sleep, 1000
@@ -36,39 +38,39 @@ ProcessUranium() {
 
 	; Open F4 Menu
 	Send {F4}
-	Sleep, 500
+	Sleep, 1000
 
 	; Click Actions Tab
 	Click, 850, 290
-	Sleep, 500
+	Sleep, 1000
 
 	; Click Uranium Processor tab
 	Click, 840, 670
-	Sleep, 500
+	Sleep, 1000
 
 	; Click Add Uranium button
 	Click, 700, 790
-	Sleep, 500
+	Sleep, 1000
 
 	; Drag Amount-Slider
 	Click, 1015, 535
-	Sleep, 500
+	Sleep, 1000
 
 	; Click Confirm button
 	Click, 960, 560
-	Sleep, 500
+	Sleep, 1000
 
 	; Click Process Uranium button
 	Click, 1060, 790
-	Sleep, 500
+	Sleep, 1000
 
 	; Press Continue button
 	Click, 960, 630
-	Sleep, 500
+	Sleep, 1000
 
 	; Close F4 menu
 	Send {F4}
-	Sleep, 500
+	Sleep, 1000
 
 }
 
@@ -76,7 +78,7 @@ ClickCollect() {
 
     ; Clicks the collect button
     Click, 1300, 320
-	Sleep, 500
+    Sleep, 1000
 
 }
 
@@ -84,7 +86,7 @@ OpenCollector() {
 
     ; Opens the collector interface
     Send {e}
-    Sleep, 500
+    Sleep, 1000
 
 }
 
@@ -92,7 +94,7 @@ ExitCollector() {
 
     ; Clicks the exit button    
     Click 1420, 290
-	Sleep, 500
+    Sleep, 1000
 
 }
 
@@ -100,8 +102,11 @@ ExitCollector() {
 
 InstanceOne() {
 
-	; Swap to Instance 1, responsible for collecting and processing Uranium
-	SwapToWindow(1)
+    ; Swap to Instance 1, responsible for collecting and processing Uranium
+    SwapToWindow(1)
+
+    ; Collects the Uranium
+    ClickCollector()
 
     ; Closes the collector interface
     ExitCollector()
@@ -116,8 +121,8 @@ InstanceOne() {
 
 InstanceTwo() {
 
-	; Swap to Instance 2, responsible for collecting Loot
-	SwapToWindow(2)
+    ; Swap to Instance 2, responsible for collecting Loot
+    SwapToWindow(2)
 
     ; Collects Loot
     ClickCollect()
@@ -126,8 +131,8 @@ InstanceTwo() {
 
 InstanceThree() {
 
-	; Swap to Instance 3, responsible for collecting Gems
-	SwapToWindow(3)
+    ; Swap to Instance 3, responsible for collecting Gems
+    SwapToWindow(3)
 
     ; Collects Gems
     ClickCollect()
