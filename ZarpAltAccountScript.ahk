@@ -159,7 +159,7 @@ Main() {
 ; ---------------------------------- ;
 
 ; Starts the script when backspace is pressed
-Backspace::Main
+Backspace::Main()
 
 ; Exits the script when Escape is pressed
 Esc::ExitApp
